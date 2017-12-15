@@ -1,0 +1,1005 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Хранилище TecnicalServiceStationModel" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="Хранилище TecnicalServiceStationModelContainer">
+          <EntitySet Name="Car" EntityType="Хранилище TecnicalServiceStationModel.Car" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CarMark" EntityType="Хранилище TecnicalServiceStationModel.CarMark" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CarModel" EntityType="Хранилище TecnicalServiceStationModel.CarModel" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Client" EntityType="Хранилище TecnicalServiceStationModel.Client" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Order" EntityType="Хранилище TecnicalServiceStationModel.Order" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="OrderService" EntityType="Хранилище TecnicalServiceStationModel.OrderService" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="OrderSpareParts" EntityType="Хранилище TecnicalServiceStationModel.OrderSpareParts" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Organization" EntityType="Хранилище TecnicalServiceStationModel.Organization" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Positon" EntityType="Хранилище TecnicalServiceStationModel.Positon" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Service" EntityType="Хранилище TecnicalServiceStationModel.Service" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ServiceCategory" EntityType="Хранилище TecnicalServiceStationModel.ServiceCategory" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SparePart" EntityType="Хранилище TecnicalServiceStationModel.SparePart" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SparePartCategory" EntityType="Хранилище TecnicalServiceStationModel.SparePartCategory" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Unit" EntityType="Хранилище TecnicalServiceStationModel.Unit" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Worker" EntityType="Хранилище TecnicalServiceStationModel.Worker" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_Car_CarModel" Association="Хранилище TecnicalServiceStationModel.FK_Car_CarModel">
+            <End Role="CarModel" EntitySet="CarModel" />
+            <End Role="Car" EntitySet="Car" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CarMarkID" Association="Хранилище TecnicalServiceStationModel.FK_CarMarkID">
+            <End Role="CarMark" EntitySet="CarMark" />
+            <End Role="CarModel" EntitySet="CarModel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Car" Association="Хранилище TecnicalServiceStationModel.FK_Order_Car">
+            <End Role="Car" EntitySet="Car" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Client" Association="Хранилище TecnicalServiceStationModel.FK_Order_Client">
+            <End Role="Client" EntitySet="Client" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Worker" Association="Хранилище TecnicalServiceStationModel.FK_Order_Worker">
+            <End Role="Worker" EntitySet="Worker" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderService_Order" Association="Хранилище TecnicalServiceStationModel.FK_OrderService_Order">
+            <End Role="Order" EntitySet="Order" />
+            <End Role="OrderService" EntitySet="OrderService" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderService_Setvice" Association="Хранилище TecnicalServiceStationModel.FK_OrderService_Setvice">
+            <End Role="Service" EntitySet="Service" />
+            <End Role="OrderService" EntitySet="OrderService" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderService_Worker" Association="Хранилище TecnicalServiceStationModel.FK_OrderService_Worker">
+            <End Role="Worker" EntitySet="Worker" />
+            <End Role="OrderService" EntitySet="OrderService" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderSpareParts_Order" Association="Хранилище TecnicalServiceStationModel.FK_OrderSpareParts_Order">
+            <End Role="Order" EntitySet="Order" />
+            <End Role="OrderSpareParts" EntitySet="OrderSpareParts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderSpareParts_SparePart" Association="Хранилище TecnicalServiceStationModel.FK_OrderSpareParts_SparePart">
+            <End Role="SparePart" EntitySet="SparePart" />
+            <End Role="OrderSpareParts" EntitySet="OrderSpareParts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Service_ServiceCategory" Association="Хранилище TecnicalServiceStationModel.FK_Service_ServiceCategory">
+            <End Role="ServiceCategory" EntitySet="ServiceCategory" />
+            <End Role="Service" EntitySet="Service" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SparePart_SparePartsCategory" Association="Хранилище TecnicalServiceStationModel.FK_SparePart_SparePartsCategory">
+            <End Role="SparePartCategory" EntitySet="SparePartCategory" />
+            <End Role="SparePart" EntitySet="SparePart" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SpareParts_Unit" Association="Хранилище TecnicalServiceStationModel.FK_SpareParts_Unit">
+            <End Role="Unit" EntitySet="Unit" />
+            <End Role="SparePart" EntitySet="SparePart" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Worker_Positon" Association="Хранилище TecnicalServiceStationModel.FK_Worker_Positon">
+            <End Role="Positon" EntitySet="Positon" />
+            <End Role="Worker" EntitySet="Worker" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Car">
+          <Key>
+            <PropertyRef Name="VIN" />
+          </Key>
+          <Property Name="VIN" Type="nvarchar" Nullable="false" MaxLength="18" />
+          <Property Name="RegistrationNymber" Type="varchar" Nullable="false" MaxLength="30" />
+          <Property Name="CreationYear" Type="int" Nullable="false" />
+          <Property Name="CarModelID" Type="int" Nullable="false" />
+          <Property Name="Owner" Type="varchar" Nullable="false" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="CarMark">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="CarModel">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="70" />
+          <Property Name="CarMarkID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Client">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Surname" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="PatronymicName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="PassportNumber" Type="nvarchar" Nullable="false" MaxLength="25" />
+          <Property Name="Address" Type="nvarchar" Nullable="false" MaxLength="250" />
+          <Property Name="Contacts" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ClientID" Type="int" Nullable="false" />
+          <Property Name="ReceiptDate" Type="datetime" Nullable="false" />
+          <Property Name="ReceiverID" Type="int" Nullable="false" />
+          <Property Name="IssueDate" Type="datetime" />
+          <Property Name="Status" Type="bit" />
+          <Property Name="CarVIN" Type="nvarchar" Nullable="false" MaxLength="18" />
+          <Property Name="CarMileage" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OrderService">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ServiceID" Type="int" Nullable="false" />
+          <Property Name="OrderID" Type="int" Nullable="false" />
+          <Property Name="WorkerID" Type="int" />
+          <Property Name="IsCompleted" Type="bit" />
+        </EntityType>
+        <EntityType Name="OrderSpareParts">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Number" Type="int" Nullable="false" />
+          <Property Name="Own" Type="bit" Nullable="false" />
+          <Property Name="SparePartID" Type="int" Nullable="false" />
+          <Property Name="OrderID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Organization">
+          <Key>
+            <PropertyRef Name="UTN" />
+          </Key>
+          <Property Name="UTN" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="300" />
+          <Property Name="Bank" Type="nvarchar" Nullable="false" MaxLength="500" />
+          <Property Name="CheckingAccount" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="VAT" Type="float" Nullable="false" />
+          <Property Name="Contacts" Type="nvarchar" Nullable="false" MaxLength="500" />
+          <Property Name="Address" Type="nvarchar" Nullable="false" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="Positon">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="Description" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="Service">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="PerfomanceTime" Type="float" Nullable="false" />
+          <Property Name="ServiceCategoryID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ServiceCategory">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="CostOfHour" Type="decimal" Nullable="false" Precision="7" Scale="2" />
+        </EntityType>
+        <EntityType Name="SparePart">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="SparePartsCategoryID" Type="int" Nullable="false" />
+          <Property Name="UnitPrice" Type="decimal" Nullable="false" Precision="7" Scale="2" />
+          <Property Name="UnitID" Type="int" />
+        </EntityType>
+        <EntityType Name="SparePartCategory">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Unit">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Worker">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="PositionID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Surname" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="PatronymicName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="PassportNumber" Type="nvarchar" Nullable="false" MaxLength="25" />
+          <Property Name="Address" Type="nvarchar" Nullable="false" MaxLength="250" />
+          <Property Name="Contacts" Type="nvarchar" Nullable="false" MaxLength="500" />
+        </EntityType>
+        <Association Name="FK_Car_CarModel">
+          <End Role="CarModel" Type="Хранилище TecnicalServiceStationModel.CarModel" Multiplicity="1" />
+          <End Role="Car" Type="Хранилище TecnicalServiceStationModel.Car" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CarModel">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Car">
+              <PropertyRef Name="CarModelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CarMarkID">
+          <End Role="CarMark" Type="Хранилище TecnicalServiceStationModel.CarMark" Multiplicity="1" />
+          <End Role="CarModel" Type="Хранилище TecnicalServiceStationModel.CarModel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CarMark">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CarModel">
+              <PropertyRef Name="CarMarkID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Car">
+          <End Role="Car" Type="Хранилище TecnicalServiceStationModel.Car" Multiplicity="1" />
+          <End Role="Order" Type="Хранилище TecnicalServiceStationModel.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Car">
+              <PropertyRef Name="VIN" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="CarVIN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Client">
+          <End Role="Client" Type="Хранилище TecnicalServiceStationModel.Client" Multiplicity="1" />
+          <End Role="Order" Type="Хранилище TecnicalServiceStationModel.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="ClientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Worker">
+          <End Role="Worker" Type="Хранилище TecnicalServiceStationModel.Worker" Multiplicity="1" />
+          <End Role="Order" Type="Хранилище TecnicalServiceStationModel.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Worker">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="ReceiverID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderService_Order">
+          <End Role="Order" Type="Хранилище TecnicalServiceStationModel.Order" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="OrderService" Type="Хранилище TecnicalServiceStationModel.OrderService" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="OrderService">
+              <PropertyRef Name="OrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderService_Setvice">
+          <End Role="Service" Type="Хранилище TecnicalServiceStationModel.Service" Multiplicity="1" />
+          <End Role="OrderService" Type="Хранилище TecnicalServiceStationModel.OrderService" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Service">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="OrderService">
+              <PropertyRef Name="ServiceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderService_Worker">
+          <End Role="Worker" Type="Хранилище TecnicalServiceStationModel.Worker" Multiplicity="0..1" />
+          <End Role="OrderService" Type="Хранилище TecnicalServiceStationModel.OrderService" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Worker">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="OrderService">
+              <PropertyRef Name="WorkerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderSpareParts_Order">
+          <End Role="Order" Type="Хранилище TecnicalServiceStationModel.Order" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="OrderSpareParts" Type="Хранилище TecnicalServiceStationModel.OrderSpareParts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="OrderSpareParts">
+              <PropertyRef Name="OrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderSpareParts_SparePart">
+          <End Role="SparePart" Type="Хранилище TecnicalServiceStationModel.SparePart" Multiplicity="1" />
+          <End Role="OrderSpareParts" Type="Хранилище TecnicalServiceStationModel.OrderSpareParts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SparePart">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="OrderSpareParts">
+              <PropertyRef Name="SparePartID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Service_ServiceCategory">
+          <End Role="ServiceCategory" Type="Хранилище TecnicalServiceStationModel.ServiceCategory" Multiplicity="1" />
+          <End Role="Service" Type="Хранилище TecnicalServiceStationModel.Service" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ServiceCategory">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Service">
+              <PropertyRef Name="ServiceCategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SparePart_SparePartsCategory">
+          <End Role="SparePartCategory" Type="Хранилище TecnicalServiceStationModel.SparePartCategory" Multiplicity="1" />
+          <End Role="SparePart" Type="Хранилище TecnicalServiceStationModel.SparePart" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SparePartCategory">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SparePart">
+              <PropertyRef Name="SparePartsCategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SpareParts_Unit">
+          <End Role="Unit" Type="Хранилище TecnicalServiceStationModel.Unit" Multiplicity="0..1" />
+          <End Role="SparePart" Type="Хранилище TecnicalServiceStationModel.SparePart" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Unit">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SparePart">
+              <PropertyRef Name="UnitID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Worker_Positon">
+          <End Role="Positon" Type="Хранилище TecnicalServiceStationModel.Positon" Multiplicity="1" />
+          <End Role="Worker" Type="Хранилище TecnicalServiceStationModel.Worker" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Positon">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Worker">
+              <PropertyRef Name="PositionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TecnicalServiceStationModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="TSSEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Car" EntityType="TecnicalServiceStationModel.Car" />
+          <EntitySet Name="CarMark" EntityType="TecnicalServiceStationModel.CarMark" />
+          <EntitySet Name="CarModel" EntityType="TecnicalServiceStationModel.CarModel" />
+          <EntitySet Name="Client" EntityType="TecnicalServiceStationModel.Client" />
+          <EntitySet Name="Order" EntityType="TecnicalServiceStationModel.Order" />
+          <EntitySet Name="OrderService" EntityType="TecnicalServiceStationModel.OrderService" />
+          <EntitySet Name="OrderSpareParts" EntityType="TecnicalServiceStationModel.OrderSpareParts" />
+          <EntitySet Name="Organization" EntityType="TecnicalServiceStationModel.Organization" />
+          <EntitySet Name="Positon" EntityType="TecnicalServiceStationModel.Positon" />
+          <EntitySet Name="Service" EntityType="TecnicalServiceStationModel.Service" />
+          <EntitySet Name="ServiceCategory" EntityType="TecnicalServiceStationModel.ServiceCategory" />
+          <EntitySet Name="SparePart" EntityType="TecnicalServiceStationModel.SparePart" />
+          <EntitySet Name="SparePartCategory" EntityType="TecnicalServiceStationModel.SparePartCategory" />
+          <EntitySet Name="Unit" EntityType="TecnicalServiceStationModel.Unit" />
+          <EntitySet Name="Worker" EntityType="TecnicalServiceStationModel.Worker" />
+          <AssociationSet Name="FK_Car_CarModel" Association="TecnicalServiceStationModel.FK_Car_CarModel">
+            <End Role="CarModel" EntitySet="CarModel" />
+            <End Role="Car" EntitySet="Car" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Car" Association="TecnicalServiceStationModel.FK_Order_Car">
+            <End Role="Car" EntitySet="Car" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CarMarkID" Association="TecnicalServiceStationModel.FK_CarMarkID">
+            <End Role="CarMark" EntitySet="CarMark" />
+            <End Role="CarModel" EntitySet="CarModel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Client" Association="TecnicalServiceStationModel.FK_Order_Client">
+            <End Role="Client" EntitySet="Client" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Worker" Association="TecnicalServiceStationModel.FK_Order_Worker">
+            <End Role="Worker" EntitySet="Worker" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderService_Order" Association="TecnicalServiceStationModel.FK_OrderService_Order">
+            <End Role="Order" EntitySet="Order" />
+            <End Role="OrderService" EntitySet="OrderService" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderSpareParts_Order" Association="TecnicalServiceStationModel.FK_OrderSpareParts_Order">
+            <End Role="Order" EntitySet="Order" />
+            <End Role="OrderSpareParts" EntitySet="OrderSpareParts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderService_Setvice" Association="TecnicalServiceStationModel.FK_OrderService_Setvice">
+            <End Role="Service" EntitySet="Service" />
+            <End Role="OrderService" EntitySet="OrderService" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderService_Worker" Association="TecnicalServiceStationModel.FK_OrderService_Worker">
+            <End Role="Worker" EntitySet="Worker" />
+            <End Role="OrderService" EntitySet="OrderService" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderSpareParts_SparePart" Association="TecnicalServiceStationModel.FK_OrderSpareParts_SparePart">
+            <End Role="SparePart" EntitySet="SparePart" />
+            <End Role="OrderSpareParts" EntitySet="OrderSpareParts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Worker_Positon" Association="TecnicalServiceStationModel.FK_Worker_Positon">
+            <End Role="Positon" EntitySet="Positon" />
+            <End Role="Worker" EntitySet="Worker" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Service_ServiceCategory" Association="TecnicalServiceStationModel.FK_Service_ServiceCategory">
+            <End Role="ServiceCategory" EntitySet="ServiceCategory" />
+            <End Role="Service" EntitySet="Service" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SparePart_SparePartsCategory" Association="TecnicalServiceStationModel.FK_SparePart_SparePartsCategory">
+            <End Role="SparePartCategory" EntitySet="SparePartCategory" />
+            <End Role="SparePart" EntitySet="SparePart" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SpareParts_Unit" Association="TecnicalServiceStationModel.FK_SpareParts_Unit">
+            <End Role="Unit" EntitySet="Unit" />
+            <End Role="SparePart" EntitySet="SparePart" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Car">
+          <Key>
+            <PropertyRef Name="VIN" />
+          </Key>
+          <Property Type="String" Name="VIN" Nullable="false" MaxLength="18" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="RegistrationNymber" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="CreationYear" Nullable="false" />
+          <Property Type="Int32" Name="CarModelID" Nullable="false" />
+          <Property Type="String" Name="Owner" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CarModel" Relationship="TecnicalServiceStationModel.FK_Car_CarModel" FromRole="Car" ToRole="CarModel" />
+          <NavigationProperty Name="Order" Relationship="TecnicalServiceStationModel.FK_Order_Car" FromRole="Car" ToRole="Order" />
+        </EntityType>
+        <EntityType Name="CarMark">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Title" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CarModel" Relationship="TecnicalServiceStationModel.FK_CarMarkID" FromRole="CarMark" ToRole="CarModel" />
+        </EntityType>
+        <EntityType Name="CarModel">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Title" Nullable="false" MaxLength="70" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="CarMarkID" Nullable="false" />
+          <NavigationProperty Name="Car" Relationship="TecnicalServiceStationModel.FK_Car_CarModel" FromRole="CarModel" ToRole="Car" />
+          <NavigationProperty Name="CarMark" Relationship="TecnicalServiceStationModel.FK_CarMarkID" FromRole="CarModel" ToRole="CarMark" />
+        </EntityType>
+        <EntityType Name="Client">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Surname" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PatronymicName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PassportNumber" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Address" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Contacts" MaxLength="500" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Order" Relationship="TecnicalServiceStationModel.FK_Order_Client" FromRole="Client" ToRole="Order" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="ClientID" Nullable="false" />
+          <Property Type="DateTime" Name="ReceiptDate" Nullable="false" Precision="3" />
+          <Property Type="Int32" Name="ReceiverID" Nullable="false" />
+          <Property Type="DateTime" Name="IssueDate" Precision="3" />
+          <Property Type="Boolean" Name="Status" />
+          <Property Type="String" Name="CarVIN" Nullable="false" MaxLength="18" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="CarMileage" Nullable="false" />
+          <NavigationProperty Name="Car" Relationship="TecnicalServiceStationModel.FK_Order_Car" FromRole="Order" ToRole="Car" />
+          <NavigationProperty Name="Client" Relationship="TecnicalServiceStationModel.FK_Order_Client" FromRole="Order" ToRole="Client" />
+          <NavigationProperty Name="Worker" Relationship="TecnicalServiceStationModel.FK_Order_Worker" FromRole="Order" ToRole="Worker" />
+          <NavigationProperty Name="OrderService" Relationship="TecnicalServiceStationModel.FK_OrderService_Order" FromRole="Order" ToRole="OrderService" />
+          <NavigationProperty Name="OrderSpareParts" Relationship="TecnicalServiceStationModel.FK_OrderSpareParts_Order" FromRole="Order" ToRole="OrderSpareParts" />
+        </EntityType>
+        <EntityType Name="OrderService">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="ServiceID" Nullable="false" />
+          <Property Type="Int32" Name="OrderID" Nullable="false" />
+          <Property Type="Int32" Name="WorkerID" />
+          <Property Type="Boolean" Name="IsCompleted" />
+          <NavigationProperty Name="Order" Relationship="TecnicalServiceStationModel.FK_OrderService_Order" FromRole="OrderService" ToRole="Order" />
+          <NavigationProperty Name="Service" Relationship="TecnicalServiceStationModel.FK_OrderService_Setvice" FromRole="OrderService" ToRole="Service" />
+          <NavigationProperty Name="Worker" Relationship="TecnicalServiceStationModel.FK_OrderService_Worker" FromRole="OrderService" ToRole="Worker" />
+        </EntityType>
+        <EntityType Name="OrderSpareParts">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="Number" Nullable="false" />
+          <Property Type="Boolean" Name="Own" Nullable="false" />
+          <Property Type="Int32" Name="SparePartID" Nullable="false" />
+          <Property Type="Int32" Name="OrderID" Nullable="false" />
+          <NavigationProperty Name="Order" Relationship="TecnicalServiceStationModel.FK_OrderSpareParts_Order" FromRole="OrderSpareParts" ToRole="Order" />
+          <NavigationProperty Name="SparePart" Relationship="TecnicalServiceStationModel.FK_OrderSpareParts_SparePart" FromRole="OrderSpareParts" ToRole="SparePart" />
+        </EntityType>
+        <EntityType Name="Organization">
+          <Key>
+            <PropertyRef Name="UTN" />
+          </Key>
+          <Property Type="String" Name="UTN" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Title" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Bank" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CheckingAccount" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="Double" Name="VAT" Nullable="false" />
+          <Property Type="String" Name="Contacts" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Address" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Positon">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Title" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="500" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Worker" Relationship="TecnicalServiceStationModel.FK_Worker_Positon" FromRole="Positon" ToRole="Worker" />
+        </EntityType>
+        <EntityType Name="Service">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Title" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="Double" Name="PerfomanceTime" Nullable="false" />
+          <Property Type="Int32" Name="ServiceCategoryID" Nullable="false" />
+          <NavigationProperty Name="OrderService" Relationship="TecnicalServiceStationModel.FK_OrderService_Setvice" FromRole="Service" ToRole="OrderService" />
+          <NavigationProperty Name="ServiceCategory" Relationship="TecnicalServiceStationModel.FK_Service_ServiceCategory" FromRole="Service" ToRole="ServiceCategory" />
+        </EntityType>
+        <EntityType Name="ServiceCategory">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Title" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="CostOfHour" Nullable="false" Precision="7" Scale="2" />
+          <NavigationProperty Name="Service" Relationship="TecnicalServiceStationModel.FK_Service_ServiceCategory" FromRole="ServiceCategory" ToRole="Service" />
+        </EntityType>
+        <EntityType Name="SparePart">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Title" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="SparePartsCategoryID" Nullable="false" />
+          <Property Type="Decimal" Name="UnitPrice" Nullable="false" Precision="7" Scale="2" />
+          <Property Type="Int32" Name="UnitID" />
+          <NavigationProperty Name="OrderSpareParts" Relationship="TecnicalServiceStationModel.FK_OrderSpareParts_SparePart" FromRole="SparePart" ToRole="OrderSpareParts" />
+          <NavigationProperty Name="SparePartCategory" Relationship="TecnicalServiceStationModel.FK_SparePart_SparePartsCategory" FromRole="SparePart" ToRole="SparePartCategory" />
+          <NavigationProperty Name="Unit" Relationship="TecnicalServiceStationModel.FK_SpareParts_Unit" FromRole="SparePart" ToRole="Unit" />
+        </EntityType>
+        <EntityType Name="SparePartCategory">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Title" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="SparePart" Relationship="TecnicalServiceStationModel.FK_SparePart_SparePartsCategory" FromRole="SparePartCategory" ToRole="SparePart" />
+        </EntityType>
+        <EntityType Name="Unit">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Title" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="SparePart" Relationship="TecnicalServiceStationModel.FK_SpareParts_Unit" FromRole="Unit" ToRole="SparePart" />
+        </EntityType>
+        <EntityType Name="Worker">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="PositionID" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Surname" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PatronymicName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PassportNumber" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Address" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Contacts" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Order" Relationship="TecnicalServiceStationModel.FK_Order_Worker" FromRole="Worker" ToRole="Order" />
+          <NavigationProperty Name="OrderService" Relationship="TecnicalServiceStationModel.FK_OrderService_Worker" FromRole="Worker" ToRole="OrderService" />
+          <NavigationProperty Name="Positon" Relationship="TecnicalServiceStationModel.FK_Worker_Positon" FromRole="Worker" ToRole="Positon" />
+        </EntityType>
+        <Association Name="FK_Car_CarModel">
+          <End Type="TecnicalServiceStationModel.CarModel" Role="CarModel" Multiplicity="1" />
+          <End Type="TecnicalServiceStationModel.Car" Role="Car" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CarModel">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Car">
+              <PropertyRef Name="CarModelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Car">
+          <End Type="TecnicalServiceStationModel.Car" Role="Car" Multiplicity="1" />
+          <End Type="TecnicalServiceStationModel.Order" Role="Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Car">
+              <PropertyRef Name="VIN" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="CarVIN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CarMarkID">
+          <End Type="TecnicalServiceStationModel.CarMark" Role="CarMark" Multiplicity="1" />
+          <End Type="TecnicalServiceStationModel.CarModel" Role="CarModel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CarMark">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CarModel">
+              <PropertyRef Name="CarMarkID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Client">
+          <End Type="TecnicalServiceStationModel.Client" Role="Client" Multiplicity="1" />
+          <End Type="TecnicalServiceStationModel.Order" Role="Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="ClientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Worker">
+          <End Type="TecnicalServiceStationModel.Worker" Role="Worker" Multiplicity="1" />
+          <End Type="TecnicalServiceStationModel.Order" Role="Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Worker">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="ReceiverID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderService_Order">
+          <End Type="TecnicalServiceStationModel.Order" Role="Order" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="TecnicalServiceStationModel.OrderService" Role="OrderService" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="OrderService">
+              <PropertyRef Name="OrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderSpareParts_Order">
+          <End Type="TecnicalServiceStationModel.Order" Role="Order" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="TecnicalServiceStationModel.OrderSpareParts" Role="OrderSpareParts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="OrderSpareParts">
+              <PropertyRef Name="OrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderService_Setvice">
+          <End Type="TecnicalServiceStationModel.Service" Role="Service" Multiplicity="1" />
+          <End Type="TecnicalServiceStationModel.OrderService" Role="OrderService" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Service">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="OrderService">
+              <PropertyRef Name="ServiceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderService_Worker">
+          <End Type="TecnicalServiceStationModel.Worker" Role="Worker" Multiplicity="0..1" />
+          <End Type="TecnicalServiceStationModel.OrderService" Role="OrderService" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Worker">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="OrderService">
+              <PropertyRef Name="WorkerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderSpareParts_SparePart">
+          <End Type="TecnicalServiceStationModel.SparePart" Role="SparePart" Multiplicity="1" />
+          <End Type="TecnicalServiceStationModel.OrderSpareParts" Role="OrderSpareParts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SparePart">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="OrderSpareParts">
+              <PropertyRef Name="SparePartID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Worker_Positon">
+          <End Type="TecnicalServiceStationModel.Positon" Role="Positon" Multiplicity="1" />
+          <End Type="TecnicalServiceStationModel.Worker" Role="Worker" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Positon">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Worker">
+              <PropertyRef Name="PositionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Service_ServiceCategory">
+          <End Type="TecnicalServiceStationModel.ServiceCategory" Role="ServiceCategory" Multiplicity="1" />
+          <End Type="TecnicalServiceStationModel.Service" Role="Service" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ServiceCategory">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Service">
+              <PropertyRef Name="ServiceCategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SparePart_SparePartsCategory">
+          <End Type="TecnicalServiceStationModel.SparePartCategory" Role="SparePartCategory" Multiplicity="1" />
+          <End Type="TecnicalServiceStationModel.SparePart" Role="SparePart" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SparePartCategory">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SparePart">
+              <PropertyRef Name="SparePartsCategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SpareParts_Unit">
+          <End Type="TecnicalServiceStationModel.Unit" Role="Unit" Multiplicity="0..1" />
+          <End Type="TecnicalServiceStationModel.SparePart" Role="SparePart" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Unit">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SparePart">
+              <PropertyRef Name="UnitID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище TecnicalServiceStationModelContainer" CdmEntityContainer="TSSEntities">
+          <EntitySetMapping Name="Car">
+            <EntityTypeMapping TypeName="TecnicalServiceStationModel.Car">
+              <MappingFragment StoreEntitySet="Car">
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="CarModelID" ColumnName="CarModelID" />
+                <ScalarProperty Name="CreationYear" ColumnName="CreationYear" />
+                <ScalarProperty Name="RegistrationNymber" ColumnName="RegistrationNymber" />
+                <ScalarProperty Name="VIN" ColumnName="VIN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CarMark">
+            <EntityTypeMapping TypeName="TecnicalServiceStationModel.CarMark">
+              <MappingFragment StoreEntitySet="CarMark">
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CarModel">
+            <EntityTypeMapping TypeName="TecnicalServiceStationModel.CarModel">
+              <MappingFragment StoreEntitySet="CarModel">
+                <ScalarProperty Name="CarMarkID" ColumnName="CarMarkID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Client">
+            <EntityTypeMapping TypeName="TecnicalServiceStationModel.Client">
+              <MappingFragment StoreEntitySet="Client">
+                <ScalarProperty Name="Contacts" ColumnName="Contacts" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="PassportNumber" ColumnName="PassportNumber" />
+                <ScalarProperty Name="PatronymicName" ColumnName="PatronymicName" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Order">
+            <EntityTypeMapping TypeName="TecnicalServiceStationModel.Order">
+              <MappingFragment StoreEntitySet="Order">
+                <ScalarProperty Name="CarMileage" ColumnName="CarMileage" />
+                <ScalarProperty Name="CarVIN" ColumnName="CarVIN" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="IssueDate" ColumnName="IssueDate" />
+                <ScalarProperty Name="ReceiverID" ColumnName="ReceiverID" />
+                <ScalarProperty Name="ReceiptDate" ColumnName="ReceiptDate" />
+                <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderService">
+            <EntityTypeMapping TypeName="TecnicalServiceStationModel.OrderService">
+              <MappingFragment StoreEntitySet="OrderService">
+                <ScalarProperty Name="IsCompleted" ColumnName="IsCompleted" />
+                <ScalarProperty Name="WorkerID" ColumnName="WorkerID" />
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+                <ScalarProperty Name="ServiceID" ColumnName="ServiceID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderSpareParts">
+            <EntityTypeMapping TypeName="TecnicalServiceStationModel.OrderSpareParts">
+              <MappingFragment StoreEntitySet="OrderSpareParts">
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+                <ScalarProperty Name="SparePartID" ColumnName="SparePartID" />
+                <ScalarProperty Name="Own" ColumnName="Own" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Organization">
+            <EntityTypeMapping TypeName="TecnicalServiceStationModel.Organization">
+              <MappingFragment StoreEntitySet="Organization">
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Contacts" ColumnName="Contacts" />
+                <ScalarProperty Name="VAT" ColumnName="VAT" />
+                <ScalarProperty Name="CheckingAccount" ColumnName="CheckingAccount" />
+                <ScalarProperty Name="Bank" ColumnName="Bank" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="UTN" ColumnName="UTN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Positon">
+            <EntityTypeMapping TypeName="TecnicalServiceStationModel.Positon">
+              <MappingFragment StoreEntitySet="Positon">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Service">
+            <EntityTypeMapping TypeName="TecnicalServiceStationModel.Service">
+              <MappingFragment StoreEntitySet="Service">
+                <ScalarProperty Name="ServiceCategoryID" ColumnName="ServiceCategoryID" />
+                <ScalarProperty Name="PerfomanceTime" ColumnName="PerfomanceTime" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ServiceCategory">
+            <EntityTypeMapping TypeName="TecnicalServiceStationModel.ServiceCategory">
+              <MappingFragment StoreEntitySet="ServiceCategory">
+                <ScalarProperty Name="CostOfHour" ColumnName="CostOfHour" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SparePart">
+            <EntityTypeMapping TypeName="TecnicalServiceStationModel.SparePart">
+              <MappingFragment StoreEntitySet="SparePart">
+                <ScalarProperty Name="UnitID" ColumnName="UnitID" />
+                <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+                <ScalarProperty Name="SparePartsCategoryID" ColumnName="SparePartsCategoryID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SparePartCategory">
+            <EntityTypeMapping TypeName="TecnicalServiceStationModel.SparePartCategory">
+              <MappingFragment StoreEntitySet="SparePartCategory">
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Unit">
+            <EntityTypeMapping TypeName="TecnicalServiceStationModel.Unit">
+              <MappingFragment StoreEntitySet="Unit">
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Worker">
+            <EntityTypeMapping TypeName="TecnicalServiceStationModel.Worker">
+              <MappingFragment StoreEntitySet="Worker">
+                <ScalarProperty Name="Contacts" ColumnName="Contacts" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="PassportNumber" ColumnName="PassportNumber" />
+                <ScalarProperty Name="PatronymicName" ColumnName="PatronymicName" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="PositionID" ColumnName="PositionID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

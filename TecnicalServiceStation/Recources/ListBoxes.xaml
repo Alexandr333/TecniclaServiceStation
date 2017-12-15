@@ -1,0 +1,29 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    
+    <Style x:Key="ScrollViewer_VerticalOnly" TargetType="ScrollViewer">
+        <Setter Property="HorizontalScrollBarVisibility" Value="Hidden"></Setter>
+        <Setter Property="VerticalScrollBarVisibility" Value="Auto"></Setter>
+    </Style>
+    <!---->
+    <Style x:Key="ListBox_Main" TargetType="ListBox">
+        <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Hidden"></Setter>
+        <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Visible"></Setter>
+        <Setter Property="HorizontalContentAlignment" Value="Stretch"></Setter>
+        <Setter Property="VerticalContentAlignment" Value="Stretch"></Setter>
+    </Style>
+    <!---->
+    <Style x:Key="ListBox_MainTemplated" BasedOn="{StaticResource ListBox_Main}" TargetType="ListBox">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ListBox">
+                        <ScrollViewer Focusable="False" VerticalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True">
+                            <Grid>
+                                <ItemsPresenter Margin="2"></ItemsPresenter>
+                            </Grid>
+                        </ScrollViewer>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

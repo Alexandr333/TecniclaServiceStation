@@ -1,0 +1,39 @@
+﻿<Controls:MetroWindow
+                      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+                      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                      mc:Ignorable="d"
+                      x:Class="TecnicalServiceStation.Forms.OrderDetails"
+                      Title="Деталь заказа"
+                      FontSize="17px" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" Height="268.163" Width="445"
+>
+    <Grid>
+        <DockPanel>
+            <ScrollViewer DockPanel.Dock="Top" VerticalScrollBarVisibility="Auto" Panel.ZIndex="1">
+                    <StackPanel Orientation="Vertical">
+                        <Label Style="{StaticResource Label_Gray}" Content="Деталь"/>
+                        <Button x:Name="_Button_SelectSparePart" Click="Clicked_SelectSparePart" Content="Выбрать деталь"/>
+                        <ContentControl
+                            Visibility="{Binding RelativeSource={RelativeSource Mode=Self},Path=Content,Converter={StaticResource VisibilityConvertor}}"
+                            x:Name="_ContentControl_SparePart"
+                            ContentTemplate="{StaticResource DataTemplate_SparePart}"
+                        />
+                        <Border BorderThickness="1.5" BorderBrush="Black"/>
+                        <Label Style="{StaticResource Label_Gray}" Content="Количество деталей"/>
+                        <TextBox
+                            Text="{Binding Number}"
+            				Controls:TextBoxHelper.Watermark="Кол-во деталей"
+            				Controls:TextBoxHelper.ClearTextButton="True" FontSize="17"
+                        />
+                    <CheckBox IsChecked="{Binding Own}" Style="{StaticResource CheckBoxSwitcher}" Margin="0,5">Предоставлена сервисом</CheckBox>
+                    <StackPanel Orientation="Vertical">
+                        <Button Click="Clicked_Add" Name="_Button_AddOrderSparePart" Content="Добавить в заказ" Background="#FF98EE5C" FontSize="15"/>
+                        <Button Click="Clicked_Save" Name="_Button_SaveOrderSparePart" Content="Сохранить" Background="#FF8FB9EC" FontSize="15"/>
+                    </StackPanel>
+                </StackPanel>
+            </ScrollViewer>
+        </DockPanel>
+    </Grid>
+</Controls:MetroWindow>

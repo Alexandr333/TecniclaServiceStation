@@ -1,0 +1,156 @@
+﻿<Controls:MetroWindow
+                      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+                      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                      mc:Ignorable="d"
+                      x:Class="TecnicalServiceStation.Forms.Orders"
+                      Title="Заказы"
+                      FontSize="17px" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" Height="673.363" Width="445"
+>
+    <Grid>
+        <Controls:FlyoutsControl x:Name="flyoutsControl" Panel.ZIndex="3" d:IsHidden="True">
+            <Controls:Flyout 
+                Width="{Binding ActualWidth, ElementName=flyoutsControl, Mode=OneWay}"
+                Theme="Light"
+                Header="Заказы"
+                Name="_Flyout_ForWorkWithOrder"
+            >
+                <ScrollViewer Style="{StaticResource ScrollViewer_VerticalOnly}">
+                    <StackPanel>
+                        <Border BorderBrush="Black" BorderThickness="1.5" Margin="0 5 0 5"/>
+                        <Label FontSize="18px" Content="Клиент"></Label>
+                        <Button Click="Clicked_SelectClient" FontSize="15px">Выбрать клиента</Button>
+                        <ContentControl 
+                            Content="{Binding Client}"
+                            Name="_ContentControl_Client"
+                            Visibility="{Binding RelativeSource={RelativeSource Mode=Self},Path=Content,Converter={StaticResource VisibilityConvertor}}"
+                            ContentTemplate="{StaticResource DataTemplate_Client_Light}"
+                        >
+                        </ContentControl>
+                        <Border BorderBrush="Black" BorderThickness="1.5" Margin="0 5 0 5"/>
+                        <Label FontSize="18px" Content="Автомобиль"></Label>
+                        <Button Click="Clicked_SelectCar" FontSize="15px">Выбрать автомобиль</Button>
+                        <ContentControl 
+                            Content="{Binding Car}"
+                            Name="_ContentControl_Car"
+                            Visibility="{Binding RelativeSource={RelativeSource Mode=Self},Path=Content,Converter={StaticResource VisibilityConvertor}}"
+                            ContentTemplate="{StaticResource DataTemplate_Car_Light}"
+                        >
+                        </ContentControl>
+                        <Label DockPanel.Dock="Left" FontSize="18px" Content="Пробег"></Label>
+                        <TextBox 
+                                Text="{Binding Path=CarMileage}" 
+                                FontSize="15px"
+                                VerticalContentAlignment="Center"
+                             >
+                            </TextBox>
+                        <Border BorderBrush="Black" BorderThickness="1.5" Margin="0 5 0 5"/>
+                        <Expander  FontSize="17px" Foreground="Black" Background="White">
+                            <Expander.Header>
+                                <DockPanel LastChildFill="True">
+                                    <Label DockPanel.Dock="Left" FontSize="18px" Content="Услуги" FontWeight="Bold"></Label>
+                                    <TextBox Name="_TextBox_SelectedServicesCount" IsReadOnly="True" IsHitTestVisible="False" VerticalContentAlignment="Center" TextAlignment="Right" FontSize="15px">
+                                        <TextBox.Text>
+                                            <Binding Path="OrderService.Count" Mode="OneWay" StringFormat="Выбрано: {0}" TargetNullValue="0"></Binding>
+                                        </TextBox.Text>
+                                    </TextBox>
+                                </DockPanel>
+                            </Expander.Header>
+                            <Grid>
+                                <DockPanel LastChildFill="True">
+                                    <Button DockPanel.Dock="Top" Click="Clicked_SelectService" Content="Добавить услугу в заказ"/>
+                                    <Button DockPanel.Dock="Top" Click="Clicked_DeleteService" Content="Удалить услугу из заказа"/>
+                                    <ListBox
+                                        ItemsSource="{Binding OrderService}"
+        	                            ItemTemplate="{StaticResource DataTemplate_OrderService}"
+        	                            Name="_List_OrderServices"
+        	                            Style="{StaticResource ListBox_MainTemplated}"
+                                        MinHeight="300px"
+                                    />
+                                </DockPanel>
+                            </Grid>
+                        </Expander>
+                        <Border BorderBrush="Black" BorderThickness="1.5" Margin="0 5 0 5"/>
+                        <Expander FontSize="17px" Foreground="Black" Background="White">
+                            <Expander.Header>
+                                <DockPanel LastChildFill="True">
+                                    <Label DockPanel.Dock="Left" FontSize="18px" Content="Детали"></Label>
+                                    <TextBox IsReadOnly="True" IsHitTestVisible="False" Name="_TextBox_SelectedSparePartsCount" TextAlignment="Right" VerticalContentAlignment="Center" FontSize="15px">
+                                        <TextBox.Text>
+                                            <Binding Path="OrderSpareParts.Count" Mode="OneWay" StringFormat="Выбрано: {0}" TargetNullValue="0"></Binding>
+                                        </TextBox.Text>
+                                    </TextBox>
+                                </DockPanel>
+                            </Expander.Header>
+                            <Grid>
+                                <DockPanel LastChildFill="True">
+                                    <Button DockPanel.Dock="Top" Click="Clicked_SelectSparePart">Добавить деталь в заказ</Button>
+                                    <Button DockPanel.Dock="Top" Click="Clicked_DeleteSparePart">Удалить деталь из заказа</Button>
+                                    <Button DockPanel.Dock="Top" Click="Clicked_ChangeSparePart">Изменить</Button>
+                                    <ListBox
+                                        ItemsSource="{Binding OrderSpareParts}"
+        	                            ItemTemplate="{StaticResource DataTemplate_OrderSparePart}"
+        	                            Name="_List_OrderSpareParts"
+        	                            Style="{StaticResource ListBox_MainTemplated}"
+                                        MinHeight="300px"
+                                    />
+                                </DockPanel>
+                            </Grid>
+                        </Expander>
+                        <Border BorderBrush="Black" BorderThickness="1.5" Margin="0 5 0 5"/>
+                        <Button Click="Clicked_AddOrder" Name="_Button_AddOrder" Background="#FF63CB6C">Добавить</Button>
+                        <Button Click="Clicked_SaveOrder" Name="_Button_SaveOrder" Background="#FF63CB6C">Сохранить</Button>
+                        <Button Click="Clicked_CancelWorkWithEntity" Background="#FFC13B3B">Отмена</Button>
+                    </StackPanel>
+                </ScrollViewer>
+            </Controls:Flyout>
+        </Controls:FlyoutsControl>
+        <DockPanel LastChildFill="True">
+            <Menu DockPanel.Dock="Top">
+                <MenuItem Header="Данные" Padding="3" Margin="3">
+                    <MenuItem Header="Добавить заказ" Background="#FF97F393" Click="Clicked_NewOrder"/>
+                    <MenuItem Header="Удалить заказ" Background="#FFEEA79B" Click="Clicked_DeleteOrder"/>
+                    <MenuItem Header="Изменить заказ" Background="#FF9BBEE8" Click="Clicked_ChangeOrder"/>
+                </MenuItem>
+                <MenuItem Header="Печать" Padding="3" Margin="3">
+                    <MenuItem Header="Выбранный заказ к печати" Click="Clicked_PrintSelectedDocument"/>
+                </MenuItem>
+            </Menu>
+            <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Hidden" CanContentScroll="True">
+                <DockPanel DockPanel.Dock="Left" Margin="0" LastChildFill="True">
+                    <TextBox
+                        Controls:TextBoxHelper.Watermark="Поиск: Код заказа"
+    		            Controls:TextBoxHelper.ClearTextButton="True"
+                        DockPanel.Dock="Top"
+                        Name="_TextBox_ID"
+                    ></TextBox>
+                    <CheckBox
+                        Style="{StaticResource CheckBoxSwitcher}"
+                        FontSize="13px"
+                        Margin="3px"
+                        DockPanel.Dock="Top"
+                        Name="_CheckBox_UnfulfilledOnly"
+                    >Отобразить только невыполненные</CheckBox>
+                    <CheckBox
+                        Style="{StaticResource CheckBoxSwitcher}"
+                        FontSize="13px"
+                        Margin="3px"
+                        DockPanel.Dock="Top"
+                        Name="_CheckBox_OldFirst"
+                    >Сначала старые</CheckBox>
+                    <Border DockPanel.Dock="Top" BorderThickness="1.5px" BorderBrush="Black"></Border>
+                    <DockPanel x:Name="dockPanel">
+                        <ListBox
+        	                ItemTemplate="{StaticResource DataTemplate_Orders}"
+        	                Name="_List_Orders"
+        	                Style="{StaticResource ListBox_MainTemplated}"
+                            Height="{Binding ActualHeight, ElementName=dockPanel, Mode=OneWay}"
+                        />
+                    </DockPanel>
+                </DockPanel>
+            </ScrollViewer>
+        </DockPanel>
+    </Grid>
+</Controls:MetroWindow>

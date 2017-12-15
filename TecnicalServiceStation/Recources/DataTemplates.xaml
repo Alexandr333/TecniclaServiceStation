@@ -1,0 +1,715 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:TecnicalServiceStation"
+                    xmlns:localModels="clr-namespace:TecnicalServiceStation.ClassModels"
+                    xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+                    >
+    <localModels:DetailOwnerConvertor x:Key="DetailOwnerConvertor"></localModels:DetailOwnerConvertor>
+    <localModels:OrderStatusConvertor x:Key="OrderStatusConvertor"></localModels:OrderStatusConvertor>
+    <localModels:VisibilityConvertor x:Key="VisibilityConvertor"></localModels:VisibilityConvertor>
+    
+    <Style x:Key="Background_Gray" TargetType="Control">
+        <Setter Property="Background">
+            <Setter.Value>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF292727" Offset="0"/>
+                    <GradientStop Color="#FF5F5D5D" Offset="1"/>
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <DataTemplate x:Key="DataTemplate_Client" DataType="{x:Type local:Client}">
+        <Expander Background="#FF060C05">
+            <Expander.Header >
+                <Grid Margin="3" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="1" Margin=" 5 ">
+                        <TextBlock Foreground="White">
+                            <TextBlock.Text>
+                                <MultiBinding StringFormat="{}{0}.{1}.{2}">
+                                    <Binding Path="Surname"></Binding>
+                                    <Binding Path="Name[0]"></Binding>
+                                    <Binding Path="PatronymicName[0]"></Binding>
+                                </MultiBinding>
+                            </TextBlock.Text>
+                        </TextBlock>
+                    </StackPanel>
+                </Grid>
+            </Expander.Header>
+            <StackPanel>
+                <Label Content="Фамилия" Style="{StaticResource Label_ListBoxItemFirst }"></Label>
+                <TextBox 
+                    Style="{StaticResource TextBox_ListBoxTextBox}"
+                    Controls:TextBoxHelper.Watermark="Фамилия"
+    			    Controls:TextBoxHelper.ClearTextButton="True"
+                    Text="{Binding Surname}"
+                ></TextBox>
+                <Label Content="Имя" Style="{StaticResource Label_ListBoxItem}"></Label>
+                <TextBox 
+                    Style="{StaticResource TextBox_ListBoxTextBox}"
+                    Controls:TextBoxHelper.Watermark="Имя"
+    			    Controls:TextBoxHelper.ClearTextButton="True"
+                    Text="{Binding Name}"
+                ></TextBox>
+                <Label Content="Отчество" Style="{StaticResource Label_ListBoxItem}"></Label>
+                <TextBox 
+                    Style="{StaticResource TextBox_ListBoxTextBox}"
+                    Controls:TextBoxHelper.Watermark="Отчество"
+    			    Controls:TextBoxHelper.ClearTextButton="True"
+                    Text="{Binding PatronymicName}"
+                ></TextBox>
+                <Label Content="Номер паспорта" Style="{StaticResource Label_ListBoxItem}"></Label>
+                <TextBox 
+                    Style="{StaticResource TextBox_ListBoxTextBox}"
+                    Controls:TextBoxHelper.Watermark="Номер паспорта"
+    			    Controls:TextBoxHelper.ClearTextButton="True"
+                    Text="{Binding PassportNumber}"
+                ></TextBox>
+                <Label Content="Адрес" Style="{StaticResource Label_ListBoxItem}"></Label>
+                <TextBox 
+                    Style="{StaticResource TextBox_ListBoxTextBox}"
+                    Controls:TextBoxHelper.Watermark="Адрес"
+    			    Controls:TextBoxHelper.ClearTextButton="True"
+                    Text="{Binding Address}"
+                ></TextBox>
+                <Label Content="Контакты" Style="{StaticResource Label_ListBoxItem}"></Label>
+                <TextBox 
+                    Style="{StaticResource TextBox_ListBoxTextBox}"
+                    Controls:TextBoxHelper.Watermark="Контакты"
+    			    Controls:TextBoxHelper.ClearTextButton="True"
+                    Text="{Binding Contacts}"
+                ></TextBox>
+            </StackPanel>
+        </Expander>
+    </DataTemplate>
+    <DataTemplate x:Key="DataTemplate_Position">
+        <Expander Background="#FF060C05">
+            <Expander.Header >
+                <Grid Margin="3" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="1" Margin=" 5 ">
+                        <TextBlock Foreground="White">
+                            <TextBlock.Text>
+                                <Binding Path="Title"></Binding>
+                            </TextBlock.Text>
+                        </TextBlock>
+                    </StackPanel>
+                </Grid>
+            </Expander.Header>
+            <StackPanel>
+                <Label Content="Код должности" Style="{StaticResource Label_ListBoxItemFirst }"></Label>
+                <TextBox
+                    Style="{StaticResource TextBox_ListBoxTextBox}"
+                    Controls:TextBoxHelper.Watermark="Код должности"
+    			    Controls:TextBoxHelper.ClearTextButton="True"
+                    Text="{Binding ID}"
+                ></TextBox>
+                <Label Content="Название" Style="{StaticResource Label_ListBoxItem}"></Label>
+                <TextBox 
+                    Style="{StaticResource TextBox_ListBoxTextBox}"
+                    Controls:TextBoxHelper.Watermark="Название"
+    			    Controls:TextBoxHelper.ClearTextButton="True"
+                    Text="{Binding Title}"
+                ></TextBox>
+                <Label Content="Описание" Style="{StaticResource Label_ListBoxItem}"></Label>
+                <TextBox 
+                    Style="{StaticResource TextBox_ListBoxTextBox}"
+                    Controls:TextBoxHelper.Watermark="Описание"
+    			    Controls:TextBoxHelper.ClearTextButton="True"
+                    Text="{Binding Description}"
+                ></TextBox>
+            </StackPanel>
+        </Expander>
+    </DataTemplate>
+    <DataTemplate x:Key="DataTemplate_Worker">
+        <Expander Style="{StaticResource Background_Gray}">
+            <Expander.Header >
+                <Grid Margin="3" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="1" Margin=" 5 ">
+                        <TextBlock Foreground="White">
+                            <TextBlock.Text>
+                                <MultiBinding StringFormat="{}{0}.{1}.{2}">
+                                    <Binding Path="Surname"></Binding>
+                                    <Binding Path="Name[0]"></Binding>
+                                    <Binding Path="PatronymicName[0]"></Binding>
+                                </MultiBinding>
+                            </TextBlock.Text>
+                        </TextBlock>
+                        <Border BorderThickness="1.5" BorderBrush="#FFDAEC2E"></Border>
+                        <TextBlock Foreground="White">
+                            <TextBlock.Text>
+                                <Binding Path="Positon.Title"></Binding>
+                            </TextBlock.Text>
+                        </TextBlock>
+                    </StackPanel>
+                </Grid>
+            </Expander.Header>
+            <StackPanel>
+                <Label Content="Код сотрудника" Style="{StaticResource Label_ListBoxItemFirst }"></Label>
+                <TextBox
+                    IsEnabled="False"
+                    Style="{StaticResource TextBox_ListBoxTextBox}"
+                    Controls:TextBoxHelper.Watermark="Код сотрудника"
+    			    Controls:TextBoxHelper.ClearTextButton="True"
+                    Text="{Binding ID}"
+                ></TextBox>
+                <Label Content="Фамилия" Style="{StaticResource Label_ListBoxItem}"></Label>
+                <TextBox 
+                    Style="{StaticResource TextBox_ListBoxTextBox}"
+                    Controls:TextBoxHelper.Watermark="Фамилия"
+    			    Controls:TextBoxHelper.ClearTextButton="True"
+                    Text="{Binding Surname}"
+                ></TextBox>
+                <Label Content="Имя" Style="{StaticResource Label_ListBoxItem}"></Label>
+                <TextBox 
+                    Style="{StaticResource TextBox_ListBoxTextBox}"
+                    Controls:TextBoxHelper.Watermark="Имя"
+    			    Controls:TextBoxHelper.ClearTextButton="True"
+                    Text="{Binding Name}"
+                ></TextBox>
+                <Label Content="Отчество" Style="{StaticResource Label_ListBoxItem}"></Label>
+                <TextBox 
+                    Style="{StaticResource TextBox_ListBoxTextBox}"
+                    Controls:TextBoxHelper.Watermark="Отчество"
+    			    Controls:TextBoxHelper.ClearTextButton="True"
+                    Text="{Binding PatronymicName}"
+                ></TextBox>
+                <Label Content="Должность" Style="{StaticResource Label_ListBoxItem}"></Label>
+                <TextBox 
+                    Style="{StaticResource TextBox_ListBoxTextBox}"
+                    Controls:TextBoxHelper.Watermark="Должность"
+    			    Controls:TextBoxHelper.ClearTextButton="True"
+                    Text="{Binding Positon.Title}"
+                ></TextBox>
+                <Label Content="Номер паспорта" Style="{StaticResource Label_ListBoxItem}"></Label>
+                <TextBox 
+                    Style="{StaticResource TextBox_ListBoxTextBox}"
+                    Controls:TextBoxHelper.Watermark="Номер паспорта"
+    			    Controls:TextBoxHelper.ClearTextButton="True"
+                    Text="{Binding PassportNumber}"
+                ></TextBox>
+                <Label Content="Адрес" Style="{StaticResource Label_ListBoxItem}"></Label>
+                <TextBox 
+                    Style="{StaticResource TextBox_ListBoxTextBox}"
+                    Controls:TextBoxHelper.Watermark="Адрес"
+    			    Controls:TextBoxHelper.ClearTextButton="True"
+                    Text="{Binding Address}"
+                ></TextBox>
+                <Label Content="Контакты" Style="{StaticResource Label_ListBoxItem}"></Label>
+                <TextBox 
+                    Style="{StaticResource TextBox_ListBoxTextBox}"
+                    Controls:TextBoxHelper.Watermark="Контакты"
+    			    Controls:TextBoxHelper.ClearTextButton="True"
+                    Text="{Binding Contacts}"
+                ></TextBox>
+            </StackPanel>
+        </Expander>
+    </DataTemplate>
+    <DataTemplate x:Key="DataTemplate_WorkerPosition">
+        <StackPanel>
+            <TextBlock>
+                <TextBlock.Text>
+                    <Binding Path="Title"></Binding>
+                </TextBlock.Text>
+            </TextBlock>
+        </StackPanel>
+    </DataTemplate>
+    <DataTemplate x:Key="DataTemplate_ServiceCategory">
+        <Border BorderThickness="1.5" Margin="3">
+            <Border.BorderBrush>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF4D4949" Offset="0"/>
+                    <GradientStop Color="#FF464141" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.BorderBrush>
+            <Expander>
+                <Expander.Header>
+                    <TextBox 
+                            Style="{StaticResource TextBox_ListBoxTextBox}"
+                            Controls:TextBoxHelper.Watermark="Наименование категории"
+    		                Controls:TextBoxHelper.ClearTextButton="True"
+                            Text="{Binding Title}"
+                            FontWeight="Bold"
+                            IsEnabled="False"
+                    ></TextBox>
+                </Expander.Header>
+                <StackPanel>
+                    <Label Content="Стоимость часа" Style="{StaticResource Label_ListBoxItem}"></Label>
+                    <TextBox 
+                            Style="{StaticResource TextBox_ListBoxTextBox}"
+                            Controls:TextBoxHelper.Watermark="Стоимость часа"
+    		                Controls:TextBoxHelper.ClearTextButton="True"
+                            Text="{Binding CostOfHour}"
+                   ></TextBox>
+                </StackPanel>
+            </Expander>
+        </Border>
+    </DataTemplate>
+    <DataTemplate x:Key="DataTemplate_SelectServiceCategory">
+        <StackPanel>
+            <TextBlock>
+                <TextBlock.Text>
+                    <Binding Path="Title"></Binding>
+                </TextBlock.Text>
+            </TextBlock>
+        </StackPanel>
+    </DataTemplate>
+    <DataTemplate x:Key="DataTemplate_Service">
+        <Border BorderThickness="1.5">
+            <Border.BorderBrush>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF4D4949" Offset="0"/>
+                    <GradientStop Color="#FF464141" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.BorderBrush>
+            <Expander>
+                <Expander.Header>
+                    <TextBox 
+                        Style="{StaticResource TextBox_ListBoxTextBox}"
+                        Controls:TextBoxHelper.Watermark="Наименование услуги"
+    		            Controls:TextBoxHelper.ClearTextButton="True"
+                        Text="{Binding Title}"
+                        IsEnabled="False"
+                ></TextBox>
+                </Expander.Header>
+                <StackPanel>
+                    <Label Content="Время выполнения" Style="{StaticResource Label_ListBoxItem}"></Label>
+                    <TextBox 
+                        Style="{StaticResource TextBox_ListBoxTextBox}"
+                        Controls:TextBoxHelper.Watermark="Время выполнения"
+    		            Controls:TextBoxHelper.ClearTextButton="True"
+                        Text="{Binding PerfomanceTime}"
+               ></TextBox>
+                </StackPanel>
+            </Expander>
+        </Border>
+    </DataTemplate>
+    <DataTemplate x:Key="DataTemplate_SparePart">
+        <Border BorderThickness="1.5">
+            <Border.BorderBrush>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF4D4949" Offset="0"/>
+                    <GradientStop Color="#FF464141" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.BorderBrush>
+            <Expander Background="Gray">
+                <Expander.Header>
+                    <TextBox 
+                          IsHitTestVisible="False"
+                          Style="{StaticResource TextBox_ListBoxTextBox}"
+                          Background="Transparent"
+                          BorderBrush="Transparent"
+                          Foreground="White"
+                          Controls:TextBoxHelper.Watermark="Наименование детали"
+    		              Controls:TextBoxHelper.ClearTextButton="True"
+                          Text="{Binding Title}"
+                    ></TextBox>
+                </Expander.Header>
+                <StackPanel>                
+                    <Label Content="Единицы измерения" Style="{StaticResource Label_ListBoxItemFirst}"></Label>
+                    <TextBox 
+                            Style="{StaticResource TextBox_ListBoxTextBox}"
+                            Controls:TextBoxHelper.Watermark="Цена за единицу"
+    		                Controls:TextBoxHelper.ClearTextButton="True"
+                            Text="{Binding Unit.Title}"
+                    ></TextBox>
+                    <Label Content="Цена за единицу" Style="{StaticResource Label_ListBoxItem}"></Label>
+                    <TextBox
+                            Style="{StaticResource TextBox_ListBoxTextBox}"
+                            Controls:TextBoxHelper.Watermark="Цена за единицу"
+    		                Controls:TextBoxHelper.ClearTextButton="True"
+                            Text="{Binding UnitPrice}"
+                    ></TextBox>
+                </StackPanel>
+            </Expander>
+        </Border>
+    </DataTemplate>
+    <DataTemplate x:Key="DataTemplate_SparePartCategory">
+        <StackPanel>
+            <Border BorderBrush="Black" BorderThickness="1.5"></Border>
+            <TextBlock FontSize="17px">
+                <TextBlock.Text>
+                    <Binding Path="Title"></Binding>
+                </TextBlock.Text>
+            </TextBlock>
+        </StackPanel>
+    </DataTemplate>
+    <DataTemplate x:Key="DataTemplate_SelectSparePartCategory">
+        <StackPanel>
+            <TextBlock>
+                <TextBlock.Text>
+                    <Binding Path="Title"></Binding>
+                </TextBlock.Text>
+            </TextBlock>
+        </StackPanel>
+    </DataTemplate>
+    <DataTemplate x:Key="DataTemplate_Unit">
+        <StackPanel>
+            <Border BorderThickness="1px" BorderBrush="Black">
+                <StackPanel>
+                    <Label Style="{StaticResource Label_ListBoxItemFirst }">Название</Label>
+                    <TextBlock FontSize="19px">
+                        <TextBlock.Text>
+                            <Binding Path="Title"></Binding>
+                        </TextBlock.Text>
+                    </TextBlock>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </DataTemplate>
+    <DataTemplate x:Key="DataTemplate_SelectUnit">
+        <StackPanel>
+            <TextBlock>
+                <TextBlock.Text>
+                    <Binding Path="Title"></Binding>
+                </TextBlock.Text>
+            </TextBlock>
+        </StackPanel>
+    </DataTemplate>
+    <DataTemplate x:Key="DataTemplate_CarMark">
+        <StackPanel Width="200px">
+            <Border BorderThickness="1px" BorderBrush="Black">
+                <TextBox IsEnabled="False" FontSize="19px" Foreground="Black" TextWrapping="Wrap">
+                    <TextBox.Text>
+                        <Binding Path="Title"></Binding>
+                    </TextBox.Text>
+                </TextBox>
+            </Border>
+        </StackPanel>
+    </DataTemplate>
+    <DataTemplate x:Key="DataTemplate_SelectCarMark">
+        <StackPanel>
+            <TextBlock>
+                <TextBlock.Text>
+                    <Binding Path="Title"></Binding>
+                </TextBlock.Text>
+            </TextBlock>
+        </StackPanel>
+    </DataTemplate>
+    <DataTemplate x:Key="DataTemplate_CarModel">
+        <Border BorderThickness="1px" BorderBrush="Black">
+            <StackPanel>
+                <TextBlock  Foreground="Black" FontSize="15px" Background="#FF4BB645">
+                    <TextBlock.Text>
+                        <Binding Path="Title" StringFormat="Модель автомобиля: {0}"></Binding>
+                    </TextBlock.Text>
+                </TextBlock>
+                <TextBlock  Foreground="Black" FontSize="15px">
+                    <TextBlock.Text>
+                        <Binding Path="CarMark.Title" StringFormat="Марка автомобиля: {0}"></Binding>
+                    </TextBlock.Text>
+                </TextBlock>
+            </StackPanel>
+        </Border>
+    </DataTemplate>
+    <DataTemplate x:Key="DataTemplate_Car">
+        <Expander Style="{StaticResource Background_Gray}">
+            <Expander.Header >
+                <Grid Margin="3" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="1" Margin=" 5 ">
+                        <TextBlock Foreground="White">
+                            <TextBlock.Text>
+                                <MultiBinding StringFormat="{}{0} {1}">
+                                    <Binding Path="CarModel.CarMark.Title"></Binding>
+                                    <Binding Path="CarModel.Title"></Binding>
+                                </MultiBinding>
+                            </TextBlock.Text>
+                        </TextBlock>
+                        <Border BorderThickness="1.5" BorderBrush="#FFDAEC2E"></Border>
+                        <TextBlock Foreground="White">
+                            <TextBlock.Text>
+                                <Binding Path="VIN"></Binding>
+                            </TextBlock.Text>
+                        </TextBlock>
+                    </StackPanel>
+                </Grid>
+            </Expander.Header>
+            <StackPanel>
+                <Label Content="VIN" Style="{StaticResource Label_ListBoxItemFirst }"></Label>
+                <TextBox
+                    IsEnabled="False"
+                    Style="{StaticResource TextBox_ListBoxTextBox}"
+                    Text="{Binding VIN}"
+                ></TextBox>
+                <Label Content="Регистрационный номер" Style="{StaticResource Label_ListBoxItem}"></Label>
+                <TextBox 
+                    Style="{StaticResource TextBox_ListBoxTextBox}"
+                    Text="{Binding RegistrationNymber}"
+                ></TextBox>
+                <Label Content="Год выпуска" Style="{StaticResource Label_ListBoxItem}"></Label>
+                <TextBox 
+                    Style="{StaticResource TextBox_ListBoxTextBox}"
+                    Controls:TextBoxHelper.Watermark="Имя"
+    			    Controls:TextBoxHelper.ClearTextButton="True"
+                    Text="{Binding CreationYear}"
+                ></TextBox>
+                <Label Content="Владелец" Style="{StaticResource Label_ListBoxItem}"></Label>
+                <TextBox 
+                    Style="{StaticResource TextBox_ListBoxTextBox}"
+                    Controls:TextBoxHelper.Watermark="Отчество"
+    			    Controls:TextBoxHelper.ClearTextButton="True"
+                    Text="{Binding Owner}"
+                ></TextBox>
+            </StackPanel>
+        </Expander>
+    </DataTemplate>
+    <DataTemplate x:Key="DataTemplate_Orders">
+        <Expander Background="Gray" Margin="0 0 0 5">
+                <Expander.Header>
+                    <StackPanel>
+                        <TextBlock Foreground="White">
+                            <TextBlock.Text>
+                                <Binding Path="ID" StringFormat="Номер договора: {0}"></Binding>
+                            </TextBlock.Text>
+                        </TextBlock>
+                        <Border BorderThickness="1.5" BorderBrush="#FFDAEC2E"></Border>
+                        <TextBlock Foreground="White">
+                            <TextBlock.Text>
+                                <MultiBinding StringFormat="ФИО клиента: {0}.{1}.{2}">
+                                <Binding Path="Client.Surname"></Binding>
+                                <Binding Path="Client.Name[0]"></Binding>
+                                <Binding Path="Client.PatronymicName[0]"></Binding>
+                            </MultiBinding>
+                            </TextBlock.Text>
+                        </TextBlock>
+                    </StackPanel>
+                </Expander.Header>
+                <StackPanel>
+                    <Label Content="Автомобиль" Style="{StaticResource Label_ListBoxItem}"></Label>
+                    <TextBox
+                        Style="{StaticResource TextBox_ListBoxTextBox}"
+                    >
+                        <TextBox.Text>
+                            <MultiBinding StringFormat="{}{0} {1}">
+                                <Binding Path="Car.CarModel.CarMark.Title"></Binding>
+                                <Binding Path="Car.CarModel.Title"></Binding>
+                            </MultiBinding>
+                        </TextBox.Text>
+                    </TextBox>
+                    <Label Content="Дата заключения" Style="{StaticResource Label_ListBoxItemFirst}"></Label>
+                    <TextBox
+                            Style="{StaticResource TextBox_ListBoxTextBox}"
+                            Text="{Binding ReceiptDate}"
+                    ></TextBox>
+                    <Label Content="Дата выполнения" Style="{StaticResource Label_ListBoxItem}"></Label>
+                    <TextBox
+                            Style="{StaticResource TextBox_ListBoxTextBox}"
+                            Text="{Binding IssueDate}"
+                    ></TextBox>
+                    <Label Content="Статус" Style="{StaticResource Label_ListBoxItem}"></Label>
+                    <TextBox
+                            Style="{StaticResource TextBox_ListBoxTextBox}"
+                            Text="{Binding Status, Converter={StaticResource OrderStatusConvertor}}"
+                    ></TextBox>
+                </StackPanel>
+            </Expander>
+    </DataTemplate>
+    <!---->
+    <DataTemplate x:Key="DataTemplate_Client_Light">
+        <Expander Background="White" BorderBrush="Black" BorderThickness="1">
+            <Expander.Header >
+                <Grid Margin="3" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="1" Margin=" 5 ">
+                        <TextBlock Foreground="Black">
+                            <TextBlock.Text>
+                                <MultiBinding StringFormat="{}{0}.{1}.{2}">
+                                    <Binding Path="Surname"></Binding>
+                                    <Binding Path="Name[0]"></Binding>
+                                    <Binding Path="PatronymicName[0]"></Binding>
+                                </MultiBinding>
+                            </TextBlock.Text>
+                        </TextBlock>
+                    </StackPanel>
+                </Grid>
+            </Expander.Header>
+            <StackPanel>
+                <Label Content="Фамилия" Style="{StaticResource Label_ListBoxItemFirst }"></Label>
+                <TextBox 
+                    Style="{StaticResource TextBox_ListBoxTextBox}"
+                    Controls:TextBoxHelper.Watermark="Фамилия"
+    			    Controls:TextBoxHelper.ClearTextButton="True"
+                    Text="{Binding Surname}"
+                ></TextBox>
+                <Label Content="Имя" Style="{StaticResource Label_ListBoxItem}"></Label>
+                <TextBox 
+                    Style="{StaticResource TextBox_ListBoxTextBox}"
+                    Controls:TextBoxHelper.Watermark="Имя"
+    			    Controls:TextBoxHelper.ClearTextButton="True"
+                    Text="{Binding Name}"
+                ></TextBox>
+                <Label Content="Отчество" Style="{StaticResource Label_ListBoxItem}"></Label>
+                <TextBox 
+                    Style="{StaticResource TextBox_ListBoxTextBox}"
+                    Controls:TextBoxHelper.Watermark="Отчество"
+    			    Controls:TextBoxHelper.ClearTextButton="True"
+                    Text="{Binding PatronymicName}"
+                ></TextBox>
+                <Label Content="Номер паспорта" Style="{StaticResource Label_ListBoxItem}"></Label>
+                <TextBox 
+                    Style="{StaticResource TextBox_ListBoxTextBox}"
+                    Controls:TextBoxHelper.Watermark="Номер паспорта"
+    			    Controls:TextBoxHelper.ClearTextButton="True"
+                    Text="{Binding PassportNumber}"
+                ></TextBox>
+                <Label Content="Адрес" Style="{StaticResource Label_ListBoxItem}"></Label>
+                <TextBox 
+                    Style="{StaticResource TextBox_ListBoxTextBox}"
+                    Controls:TextBoxHelper.Watermark="Адрес"
+    			    Controls:TextBoxHelper.ClearTextButton="True"
+                    Text="{Binding Address}"
+                ></TextBox>
+                <Label Content="Контакты" Style="{StaticResource Label_ListBoxItem}"></Label>
+                <TextBox 
+                    Style="{StaticResource TextBox_ListBoxTextBox}"
+                    Controls:TextBoxHelper.Watermark="Контакты"
+    			    Controls:TextBoxHelper.ClearTextButton="True"
+                    Text="{Binding Contacts}"
+                ></TextBox>
+            </StackPanel>
+        </Expander>
+    </DataTemplate>
+    <DataTemplate x:Key="DataTemplate_Car_Light">
+        <Expander Background="White" BorderBrush="Black" BorderThickness="1">
+            <Expander.Header >
+                <Grid Margin="3" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="1" Margin=" 5 ">
+                        <TextBlock Foreground="Black">
+                            <TextBlock.Text>
+                                <MultiBinding StringFormat="{}{0} {1}">
+                                    <Binding Path="CarModel.CarMark.Title"></Binding>
+                                    <Binding Path="CarModel.Title"></Binding>
+                                </MultiBinding>
+                            </TextBlock.Text>
+                        </TextBlock>
+                        <Border BorderThickness="1.5" BorderBrush="#FFDAEC2E"></Border>
+                        <TextBlock Foreground="Black">
+                            <TextBlock.Text>
+                                <Binding Path="VIN"></Binding>
+                            </TextBlock.Text>
+                        </TextBlock>
+                    </StackPanel>
+                </Grid>
+            </Expander.Header>
+            <StackPanel>
+                <Label Content="VIN" Style="{StaticResource Label_ListBoxItemFirst }"></Label>
+                <TextBox
+                    IsEnabled="False"
+                    Style="{StaticResource TextBox_ListBoxTextBox}"
+                    Text="{Binding VIN}"
+                ></TextBox>
+                <Label Content="Регистрационный номер" Style="{StaticResource Label_ListBoxItem}"></Label>
+                <TextBox 
+                    Style="{StaticResource TextBox_ListBoxTextBox}"
+                    Text="{Binding RegistrationNymber}"
+                ></TextBox>
+                <Label Content="Год выпуска" Style="{StaticResource Label_ListBoxItem}"></Label>
+                <TextBox 
+                    Style="{StaticResource TextBox_ListBoxTextBox}"
+                    Controls:TextBoxHelper.Watermark="Имя"
+    			    Controls:TextBoxHelper.ClearTextButton="True"
+                    Text="{Binding CreationYear}"
+                ></TextBox>
+                <Label Content="Владелец" Style="{StaticResource Label_ListBoxItem}"></Label>
+                <TextBox 
+                    Style="{StaticResource TextBox_ListBoxTextBox}"
+                    Controls:TextBoxHelper.Watermark="Отчество"
+    			    Controls:TextBoxHelper.ClearTextButton="True"
+                    Text="{Binding Owner}"
+                ></TextBox>
+            </StackPanel>
+        </Expander>
+    </DataTemplate>
+    <DataTemplate x:Key="DataTemplate_OrderSparePart">
+        <Expander Background="Gray" Margin="5 0 0 5">
+                <Expander.Header>
+                    <StackPanel>
+                        <TextBox 
+                            IsHitTestVisible="False"
+                            Style="{StaticResource TextBox_ListBoxTextBox}"
+                            Background="Transparent"
+                            BorderBrush="Transparent"
+                            Foreground="White"
+                            FontSize="15px"
+                            Controls:TextBoxHelper.Watermark="Наименование детали"
+    		                Controls:TextBoxHelper.ClearTextButton="True"
+                            Text="{Binding SparePart.Title}"
+                        ></TextBox>
+                        <Border BorderThickness="1.5" BorderBrush="#FFDAEC2E"></Border>
+                        <TextBlock Foreground="White" FontSize="15px">
+                            <TextBlock.Text>
+                                <MultiBinding StringFormat="Количество: {0}">
+                                    <Binding Path="Number"></Binding>
+                                </MultiBinding>
+                            </TextBlock.Text>
+                        </TextBlock>
+                    </StackPanel>
+                </Expander.Header>
+                <StackPanel>
+                    <Label Content="Единицы измерения" Style="{StaticResource Label_ListBoxItem}"></Label>
+                    <TextBox
+                        Style="{StaticResource TextBox_ListBoxTextBox}"
+                    >
+                        <TextBox.Text>
+                            <MultiBinding StringFormat="{}{0}">
+                                <Binding Path="SparePart.Unit.Title"></Binding>
+                            </MultiBinding>
+                        </TextBox.Text>
+                    </TextBox>
+                    <Label Content="Цена за единицу" Style="{StaticResource Label_ListBoxItemFirst}"></Label>
+                    <TextBox
+                            Style="{StaticResource TextBox_ListBoxTextBox}"
+                            Text="{Binding SparePart.UnitPrice}"
+                    ></TextBox>
+                    <Label Content="Владелец детали" Style="{StaticResource Label_ListBoxItemFirst}"></Label>
+                    <TextBox
+                            Style="{StaticResource TextBox_ListBoxTextBox}"
+                    >
+                        <TextBox.Text>
+                            <Binding Path="Own" Converter="{StaticResource DetailOwnerConvertor}"></Binding>
+                        </TextBox.Text>
+                    </TextBox>
+                </StackPanel>
+            </Expander>
+    </DataTemplate>
+    <DataTemplate x:Key="DataTemplate_OrderService">
+        <Border BorderBrush="Black" BorderThickness="1" Margin="0 0 0 10">
+            <StackPanel>
+                <Label Content="Наименование услуги" Style="{StaticResource Label_ListBoxItem}"></Label>
+                <TextBox 
+                    Style="{StaticResource TextBox_ListBoxTextBox}"
+                    Text="{Binding Service.Title}"
+                    IsHitTestVisible="False"
+                ></TextBox>
+                <Label Content="Время выполнения" Style="{StaticResource Label_ListBoxItem}"></Label>
+                <TextBox 
+                    Style="{StaticResource TextBox_ListBoxTextBox}"
+                    IsHitTestVisible="False"
+                    Text="{Binding Service.PerfomanceTime}"
+               ></TextBox>
+            </StackPanel>
+        </Border>
+    </DataTemplate>
+     <!---->
+</ResourceDictionary>

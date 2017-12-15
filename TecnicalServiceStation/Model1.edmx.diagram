@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="fef7fa4c6d1a47c6a7e743421c0336dc" Name="Диаграмма1" ZoomLevel="94">
+        <EntityTypeShape EntityType="TecnicalServiceStationModel.Car" Width="1.5" PointX="7.3791790489941738" PointY="24.644564759286382" />
+        <EntityTypeShape EntityType="TecnicalServiceStationModel.CarMark" Width="1.5" PointX="6.8935626423422072" PointY="8.5920882563069867" />
+        <EntityTypeShape EntityType="TecnicalServiceStationModel.CarModel" Width="1.5" PointX="1.8820283775599804" PointY="28.127649841889575" />
+        <EntityTypeShape EntityType="TecnicalServiceStationModel.Client" Width="1.5" PointX="1.1930887760562303" PointY="3.7592387365918789" />
+        <EntityTypeShape EntityType="TecnicalServiceStationModel.Order" Width="1.5" PointX="3.2269437905526459" PointY="27.564687041363069" />
+        <EntityTypeShape EntityType="TecnicalServiceStationModel.OrderService" Width="1.5" PointX="9.4112625203147822" PointY="22.391468550260864" />
+        <EntityTypeShape EntityType="TecnicalServiceStationModel.OrderSpareParts" Width="1.5" PointX="0.69217141191110543" PointY="3.2509980663894669" />
+        <EntityTypeShape EntityType="TecnicalServiceStationModel.Organization" Width="1.5" PointX="6.8335391799144158" PointY="10.066538234272292" />
+        <EntityTypeShape EntityType="TecnicalServiceStationModel.Positon" Width="1.5" PointX="1.0524360598309135" PointY="6.5631137073799568" />
+        <EntityTypeShape EntityType="TecnicalServiceStationModel.Service" Width="1.5" PointX="6.6438688480499515" PointY="10.558223416357405" />
+        <EntityTypeShape EntityType="TecnicalServiceStationModel.ServiceCategory" Width="1.5" PointX="3.882359087412413" PointY="28.214119194175172" />
+        <EntityTypeShape EntityType="TecnicalServiceStationModel.SparePart" Width="1.5" PointX="0.25857478951037616" PointY="11.534140696532159" />
+        <EntityTypeShape EntityType="TecnicalServiceStationModel.SparePartCategory" Width="1.5" PointX="0.20668607587306115" PointY="10.981276547061874" />
+        <EntityTypeShape EntityType="TecnicalServiceStationModel.Unit" Width="1.5" PointX="5.1018961766277888" PointY="10.302900080710137" />
+        <EntityTypeShape EntityType="TecnicalServiceStationModel.Worker" Width="1.5" PointX="6.5916764077691719" PointY="0.033624559656542055" />
+        <AssociationConnector Association="TecnicalServiceStationModel.FK_Car_CarModel" />
+        <AssociationConnector Association="TecnicalServiceStationModel.FK_Order_Car" />
+        <AssociationConnector Association="TecnicalServiceStationModel.FK_CarMarkID" />
+        <AssociationConnector Association="TecnicalServiceStationModel.FK_Order_Client" />
+        <AssociationConnector Association="TecnicalServiceStationModel.FK_Order_Worker" />
+        <AssociationConnector Association="TecnicalServiceStationModel.FK_OrderService_Order" />
+        <AssociationConnector Association="TecnicalServiceStationModel.FK_OrderSpareParts_Order" />
+        <AssociationConnector Association="TecnicalServiceStationModel.FK_OrderService_Setvice" />
+        <AssociationConnector Association="TecnicalServiceStationModel.FK_OrderService_Worker" />
+        <AssociationConnector Association="TecnicalServiceStationModel.FK_OrderSpareParts_SparePart" />
+        <AssociationConnector Association="TecnicalServiceStationModel.FK_Worker_Positon" />
+        <AssociationConnector Association="TecnicalServiceStationModel.FK_Service_ServiceCategory" />
+        <AssociationConnector Association="TecnicalServiceStationModel.FK_SparePart_SparePartsCategory" />
+        <AssociationConnector Association="TecnicalServiceStationModel.FK_SpareParts_Unit" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
